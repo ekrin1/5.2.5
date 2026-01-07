@@ -1,7 +1,7 @@
-import { SkillsFilter } from '../skillsFilter/skillsFilter';
-import { CitiesFilter } from '../citiesFilter/citiesFilter';  
+import { SkillsFilter } from '../SkillsFilter/SkillsFilter';
+import { CitiesFilter } from '../CitiesFilter/CitiesFilter';  
 
-import styles from './filterSidebar.module.css';
+import styles from './FiltersSidebar.module.css';
 
 export const FiltersSidebar = () => (
   <aside className={styles.sidebar}> 

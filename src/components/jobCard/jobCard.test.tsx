@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { MantineProvider } from "@mantine/core";
-import { JobCard } from "./jobCard";
+import { JobCard } from "./JobCard";
 import type { JobType } from "../../services/types";
 
 const vacancyMock: JobType = {

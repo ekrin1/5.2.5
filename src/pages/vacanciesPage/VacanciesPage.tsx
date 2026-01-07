@@ -1,7 +1,7 @@
-import { Search } from '../../components/search/Search'
-import { FiltersSidebar } from '../../components/filterSidebar/filterSidebar';
-import { JobCard } from '../../components/jobCard/jobCard';
-import { PaginationBar } from '../../components/pagination/PaginationBar';
+import { Search } from '../../components/Search/Search'
+import { FiltersSidebar } from '../../components/FiltersSidebar/FiltersSidebar';
+import { JobCard } from '../../components/JobCard/JobCard';
+import { PaginationBar } from '../../components/PaginationBar/PaginationBar';
 
 import { Container, Group, Loader } from "@mantine/core";
 import styles from "./VacanciesPage.module.css";

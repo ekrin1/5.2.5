@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { fireEvent, screen } from "@testing-library/react";
 import * as hooks from "../../store/hooks";
-import { SkillsFilter } from "./skillsFilter";
+import { SkillsFilter } from "./SkillsFilter";
 import { renderWithProviders } from "../../test/utils";
 import { setSkills, setPage, fetchVacanciesThunk } from "../../store/vacanciesSlice";
 

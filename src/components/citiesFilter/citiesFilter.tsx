@@ -1,6 +1,6 @@
 import { Select } from '@mantine/core'
 import location  from '../../assets/map-pin.svg'
-import styles from './citiesFilter.module.css'
+import styles from './CitiesFilter.module.css'
 
 import { fetchVacanciesThunk, setPage, setCity } from '../../store/vacanciesSlice'
 import { useAppDispatch } from "../../store/hooks";
