@@ -68,9 +68,22 @@
 }
 
 .button-apply {
-  color: var(--mantine-color-black-9);
+  background-color: #e0e0e0;
+  color: #000;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.button-apply.page {
+  background-color: #000;
+  color: #fff;
 }
 
 .button-apply:hover {
-  color: var(--mantine-color-black-9);
+  background-color: #d5d5d5;
+  color: #000;
+}
+
+.button-apply.page:hover {
+  background-color: #6e6e6e;
+  color: #fff;
 }
