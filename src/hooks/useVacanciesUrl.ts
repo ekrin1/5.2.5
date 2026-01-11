@@ -29,7 +29,7 @@ export const useVacanciesUrl = () => {
     if (urlSkills && urlSkills.join(",") !== skills.join(",")) {
       dispatch(setSkills(urlSkills));
     }
-  }, [searchParams, city, page, dispatch, search, skills]);
+  }, [searchParams]);
 
   // ---------------------------------------------------------------------------------------------------------
 
@@ -47,7 +47,7 @@ export const useVacanciesUrl = () => {
     } else {
       setSearchParams(params);
     }
-  }, [search, city, skills, page, setSearchParams]);
+  }, [search, city, skills, page]);
 
   // ---------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ export const useVacanciesUrl = () => {
       }
     };
     fetch();
-  }, [search, city, skills, page, dispatch]);
+  }, [search, city, skills, page]);
 
   // ---------------------------------------------------------------------------------------------------------
 
