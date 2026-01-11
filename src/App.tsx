@@ -1,7 +1,7 @@
 import "@mantine/core/styles.css";
 
-import { Header } from './components/Header/Header' 
-import { VacanciesPage } from './pages/VacanciesPage/VacanciesPage'
+import { Header } from './components/header/Header' 
+import { VacanciesPage } from './pages/vacanciesPage/VacanciesPage'
 
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { VacancyPage } from './pages/VacancyPage/VacancyPage';

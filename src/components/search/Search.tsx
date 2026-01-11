@@ -29,7 +29,6 @@ export const Search = () => {
         }
     };
 
-
     return (
 
         <div className={styles.search_container}>

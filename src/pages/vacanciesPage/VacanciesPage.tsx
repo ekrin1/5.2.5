@@ -1,25 +1,22 @@
-import { Search } from '../../components/Search/Search'
+import { Search } from '../../components/search/Search'
 import { FiltersSidebar } from '../../components/FiltersSidebar/FiltersSidebar';
-import { JobCard } from '../../components/JobCard/JobCard';
+import { JobCard } from '../../components/jobCard/jobCard';
 import { PaginationBar } from '../../components/PaginationBar/PaginationBar';
 
-import { Container, Group, Loader } from "@mantine/core";
+import { Container, Group, Skeleton } from "@mantine/core";
 import styles from "./VacanciesPage.module.css";
 
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { fetchVacanciesThunk, setPage } from "../../store/vacanciesSlice";
+import { useVacanciesUrl } from "../../hooks/useVacanciesUrl";
 
 export const VacanciesPage = () => {
 
-    const dispatch = useAppDispatch();
-    const { items, loading, page, totalPages} = useAppSelector(
-    (state) => state.vacancies
-  );
-
-    useEffect(() => {
-      dispatch(fetchVacanciesThunk());
-    }, [page, dispatch]);
+    const {
+      items,
+      loading,
+      totalPages,
+      page,
+      handlePageChange
+    } = useVacanciesUrl();
 
   return (
 
@@ -33,7 +30,7 @@ export const VacanciesPage = () => {
 
                 <div className={styles.vacancies}>
                   {loading ? (
-                    <Loader />
+                    Array.from({ length: 10 }).map((_, i) => <Skeleton key={i} />)
                   ) : (
                   <>
                     {items.map((vacancy) => (
@@ -42,7 +39,7 @@ export const VacanciesPage = () => {
                       <PaginationBar
                         page={page}
                         total={totalPages}
-                        onChange={(p) => dispatch(setPage(p))}
+                        onChange={handlePageChange}
                       />
                   </>
                   )}

@@ -3,11 +3,12 @@ import location  from '../../assets/map-pin.svg'
 import styles from './CitiesFilter.module.css'
 
 import { fetchVacanciesThunk, setPage, setCity } from '../../store/vacanciesSlice'
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 
 export const CitiesFilter = () => {
     const dispatch = useAppDispatch();
+    const city = useAppSelector((state) => state.vacancies.city);
 
     const handleCityChange = (value: string | null) => {
         dispatch(setCity(value || "Все"));
@@ -19,6 +20,7 @@ export const CitiesFilter = () => {
             <Select
                 placeholder='Все города'
                 data={['Все города', 'Москва', 'Санкт-Петербург']}
+                value={city}
                 onChange={handleCityChange}
                 className={styles.select}
                 comboboxProps={{ shadow: 'md' }}
