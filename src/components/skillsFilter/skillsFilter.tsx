@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Group, Card, Text, Pill, PillGroup, TextInput, ActionIcon, CloseButton } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 
-import styles from "./SkillsFilter.module.css";
+import styles from "./skillsFilter.module.css";
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { setSkills, fetchVacanciesThunk, setPage } from "../../store/vacanciesSlice";

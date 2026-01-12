@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { formatSalary, formatExperience, getWorkFormat } from "../../utils/workFormat";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./JobCard.module.css";
+import styles from "./jobCard.module.css";
 
 type Props = {
   vacancy: JobType;
