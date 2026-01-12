@@ -24,14 +24,30 @@ const initialState: VacanciesState = {
     city: "",
 }
 
-export const fetchVacanciesThunk = createAsyncThunk(
-    'vacancies/fetchVacancies',
-    async (_, { getState }) => {
-    const state = getState() as { vacancies: VacanciesState };
+interface VacanciesResponse {
+  items: JobType[];
+  found: number;
+}
+
+export const fetchVacanciesThunk = createAsyncThunk<VacanciesResponse,void,{ state: { vacancies: VacanciesState } }>(
+  'vacancies/fetchVacancies',
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState();
     const { page, skills, search, city } = state.vacancies;
-    const data = await fetchVacancies({ page, skills, search, city });
-    return data;
+
+      try {
+        const data = await fetchVacancies({ page, skills, search, city });
+
+        const totalPages = Math.ceil(data.found / 10);
+
+        if (page > totalPages && totalPages > 0) {
+          return rejectWithValue('Такой страницы не существует');
+        }
+        return data;
+        } catch {
+      return rejectWithValue('Ошибка загрузки вакансий');
     }
+  }
 );
 
 const vacanciesSlice = createSlice({
@@ -65,7 +81,8 @@ const vacanciesSlice = createSlice({
       })
       .addCase(fetchVacanciesThunk.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Ошибка загрузки";
+        state.error = action.payload as string;
+        state.items = [];
       });
     }
 });
