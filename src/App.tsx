@@ -4,7 +4,7 @@ import { MainLayout } from "./layouts/MainLayout";
 import { VacanciesPage } from './pages/vacanciesPage/VacanciesPage'
 
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { VacancyPage } from './pages/VacancyPage/VacancyPage';
+import { VacancyPage } from './pages/vacancyPage/VacancyPage';
 
 
 function App() {
